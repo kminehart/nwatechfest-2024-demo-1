@@ -15,8 +15,9 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	pwd, _ := os.Getwd()
-	source := c.Host().Directory(pwd)
+
+	repo := c.Git("https://github.com/kminehart/nwatechfest-2024-demo-1.git")
+	source := repo.Branch("main").Tree()
 
 	container := c.Container().From("golang:1.22").
 		WithMountedDirectory("/src", source).
