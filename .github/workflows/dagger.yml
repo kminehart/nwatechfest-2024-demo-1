@@ -14,7 +14,6 @@ jobs:
     - name: Dagger Run
       uses: dagger/dagger-for-github@v5
       with:
-        workdir: db-service
         verb: run
         args: go run ./ci
         version: "0.11.4"
